@@ -6,6 +6,7 @@
     "build": "tsc && vite build",
     "serve": "vite preview",
     "lint": "stylelint \"**/*.css\" && eslint . && prettier . --check",
+    "lint-fix": "stylelint \"**/*.css\" --fix && eslint . --fix && prettier . --write",
     "prepare": "husky install",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
