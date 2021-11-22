@@ -1,7 +1,24 @@
+import { useEffect, useState } from "react";
 import styles from "./App.module.css";
 
 function App() {
-  return <p className={styles.starter}>Hello Vite + React!</p>;
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    async function doFetch() {
+      const response = await fetch("/api/hello");
+      const result = await response.json();
+      setMessage(result.message);
+    }
+    doFetch();
+  }, []);
+
+  return (
+    <div className={styles.starter}>
+      <p>Hello Vite!</p>
+      <p>{message}</p>
+    </div>
+  );
 }
 
 export default App;
